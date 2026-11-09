@@ -19,7 +19,7 @@ This is the first public version. It works and it's fun, but:
 
 ## Download and install
 
-Get `OTH-VR-v…-prealpha.zip` from the [Releases](../../releases) page. Install [OTH Cockpit](https://github.com/JonkoMonk/oth-cockpit/releases) too.
+Get `OTH-VR-v…-prealpha.zip` from the [Releases](../../releases) page or [Nexus Mods](https://www.nexusmods.com/overthehill/mods/135). Install [OTH Cockpit](https://github.com/JonkoMonk/oth-cockpit/releases) too.
 
 1. Close the game. Copy the **contents** of the zip's `MelonLoader` folder (or `BepInEx` folder) into the game folder.
 2. Set your headset's OpenXR runtime (Virtual Desktop, Meta Horizon Link app, or SteamVR).
