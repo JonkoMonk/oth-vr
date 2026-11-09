@@ -12,4 +12,3 @@ First public version.
 - Trees, grass and rocks (GPU Instancer) in both eyes.
 - Sound follows your head; in the cockpit the ears sit nearer the middle of the car so the engine isn't only in one ear.
 - Optional horizon lock and bump smoothing; performance switches for shadows, fog and view distance.
-- `OxrTest.exe`: checks your headset's OpenXR runtime without the game.

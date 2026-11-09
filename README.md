@@ -35,7 +35,7 @@ F7 VR on/off · F11 recenter · F5 view (Auto / 3D / flat screen) · Home/End se
 
 over the hill is an IL2CPP Unity 6 game (URP, Direct3D 11), so Unity's own VR support can't be switched on. The mod opens its own OpenXR session instead:
 
-- `native/` is a small C++ helper (`OthVrNative.dll`): an OpenXR session on the game's own D3D11 device, one swapchain per eye plus a quad layer for the flat screen. It copies the eye textures into the swapchains on Unity's render thread (`GL.IssuePluginEvent`). `OxrTest.cpp` is a stand-alone test without the game.
+- `native/` is a small C++ helper (`OthVrNative.dll`): an OpenXR session on the game's own D3D11 device, one swapchain per eye plus a quad layer for the flat screen. It copies the eye textures into the swapchains on Unity's render thread (`GL.IssuePluginEvent`). `OxrTest.cpp` is a stand-alone developer test without the game (not in the release zip).
 - `src/` is the mod (C#, net6.0, MelonLoader and BepInEx from one code base): two eye cameras at your head (the OTH Cockpit seat when present), each with the game's own upscaler (DLSS/FSR) and VR-safe screen effects, GPU Instancer registration so trees show in both eyes, and an FMOD listener at your head.
 
 Build: `build.ps1 -NoInstall` (Visual Studio C++ Build Tools, the [OpenXR SDK](https://github.com/KhronosGroup/OpenXR-SDK-Source/releases) 1.1.63 in `%USERPROFILE%\dev\tools\openxr-1.1.63\sdk`, and the game's generated interop assemblies; paths in `src/Directory.Build.props`). `package.ps1` makes the release zip.

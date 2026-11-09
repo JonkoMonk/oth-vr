@@ -3,6 +3,7 @@
 #   MelonLoader\Mods\OthVr.Melon.dll + MelonLoader\UserData\OthVr\native\*   (copy the CONTENTS of "MelonLoader" into the game folder)
 #   BepInEx\BepInEx\plugins\OthVr.dll + BepInEx\BepInEx\plugins\OthVr\native\*
 # plus README-VR.md, the mod's MIT licence and the OpenXR loader's Apache-2.0 licence. Fails if the account name shows up anywhere.
+# No .exe in the zip: Nexus Mods quarantines zips with executables (OxrTest.exe stays a developer tool, see build.ps1).
 # Usage: powershell -File package.ps1 [-Label "-prealpha"]   (label goes after the version in the zip name)
 param([string]$Label = "-prealpha")
 $ErrorActionPreference = "Stop"
@@ -14,7 +15,7 @@ $version = (Select-String -Path (Join-Path $PSScriptRoot "src\OthVr\Plugin.cs") 
 $stage = "$root\dist\OTH-VR-v$version$Label"
 if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
 $native = "$root\native"
-$natives = "$native\OthVrNative.dll", "$native\openxr_loader.dll", "$native\OxrTest.exe"
+$natives = "$native\OthVrNative.dll", "$native\openxr_loader.dll"
 
 New-Item -ItemType Directory -Force -Path "$stage\MelonLoader\Mods", "$stage\MelonLoader\UserData\OthVr\native" | Out-Null
 Copy-Item "$root\bin\OthVr.Melon\Release\net6.0\OthVr.Melon.dll" "$stage\MelonLoader\Mods"
@@ -30,6 +31,7 @@ Copy-Item "$env:USERPROFILE\dev\tools\openxr-1.1.63\sdk\share\doc\openxr\LICENSE
 
 $hits = Get-ChildItem $stage -Recurse -File | Select-String -Pattern $env:USERNAME -SimpleMatch -List
 if ($hits) { $hits | ForEach-Object { Write-Warning "Account name in $($_.Path)" }; throw "Account name found in the package" }
+if (Get-ChildItem $stage -Recurse -File -Include *.exe, *.bat, *.cmd, *.ps1, *.zip) { throw "Executable, script or nested zip in the package (Nexus quarantines those)" }
 
 $zip = "$stage.zip"
 if (Test-Path $zip) { Remove-Item $zip -Force }

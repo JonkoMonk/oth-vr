@@ -41,7 +41,7 @@ Windows uses one "active OpenXR runtime". Set it in your headset's PC software:
 | Valve Index, Vive, Bigscreen Beyond, Pico (SteamVR) | SteamVR > Settings > OpenXR > Set SteamVR as OpenXR runtime | no |
 | Pimax, Varjo | their own app | no |
 
-Quick check without the game: run `OxrTest.exe` in the mod's `native` folder. You should see red in the left eye, blue in the right, then a green screen.
+Not sure it's set up right? Press F7 in the game and look in `MelonLoader\Latest.log` (BepInEx: `BepInEx\LogOutput.log`) for `OTH_VR` lines: `VR on: runtime ...` names your runtime and headset; `no headset found` means the headset software isn't running or isn't the active OpenXR runtime.
 
 ## Keys
 
