@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- MelonLoader build of the VR mod: the same sources as ..\OthVr, compiled with MELON defined. -->
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>OthVr.Melon</AssemblyName>
+    <RootNamespace>OthVr</RootNamespace>
+    <DefineConstants>$(DefineConstants);MELON</DefineConstants>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\OthVr\*.cs" Exclude="..\OthVr\Loader.BepInEx.cs" LinkBase="Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="$(MelonDir)\net6\MelonLoader.dll" Private="false" />
+    <Reference Include="$(MelonDir)\net6\Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="$(MelonDir)\net6\Il2CppInterop.Common.dll" Private="false" />
+    <Reference Include="$(MelonDir)\Il2CppAssemblies\*.dll" Exclude="$(MelonDir)\Il2CppAssemblies\UnityDirectInput.Runtime.dll" Private="false" />
+  </ItemGroup>
+</Project>

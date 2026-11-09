@@ -1,0 +1,15 @@
+<Project>
+  <!-- Keep build output out of OneDrive to avoid sync locks. -->
+  <PropertyGroup>
+    <BuildRoot>$(USERPROFILE)\dev\oth-vr-build</BuildRoot>
+    <BaseIntermediateOutputPath>$(BuildRoot)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(BuildRoot)\bin\$(MSBuildProjectName)\</BaseOutputPath>
+    <!-- BepInEx build: references come from the BepInEx test copy of the game (shared with the other mods). -->
+    <BepGameDir>$(USERPROFILE)\dev\oth-bep-test\game</BepGameDir>
+    <BepInExCore>$(BepGameDir)\BepInEx\core</BepInExCore>
+    <Interop>$(BepGameDir)\BepInEx\interop</Interop>
+    <!-- MelonLoader build: references come from the game copy with MelonLoader. -->
+    <MelonGameDir>$(USERPROFILE)\dev\oth-ml-test\game</MelonGameDir>
+    <MelonDir>$(MelonGameDir)\MelonLoader</MelonDir>
+  </PropertyGroup>
+</Project>
