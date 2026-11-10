@@ -2,6 +2,8 @@
 
 Sit in your car in **over the hill** (Funselektor, Steam) with a PC VR headset: real 3D, look around with your head, drive with keyboard, controller or wheel. Menus and the map show on a big flat screen floating in front of you. Works with MelonLoader 0.7 or BepInEx 6.
 
+Watch it in action: [OTH VR pre-alpha video](https://youtu.be/jyjneFaQpw0).
+
 **Made to be used together with [OTH Cockpit](https://github.com/JonkoMonk/oth-cockpit)** ([Nexus Mods](https://www.nexusmods.com/overthehill/mods/90)): VR puts you in its driver's seat with a full interior for every car, so install both. Without it VR still works, but you only get the game's own chase camera in 3D. With [OTH Wheel](https://github.com/JonkoMonk/oth-wheel) ([Nexus Mods](https://www.nexusmods.com/overthehill/mods/83)) you drive it with a real steering wheel.
 
 Questions or problems? Ask in the [JonkoMonk Discord](https://discord.gg/h2hXcYgkpE) or open an Issue.
